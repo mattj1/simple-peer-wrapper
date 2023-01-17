@@ -38,11 +38,11 @@ var PeerWrapper = /** @class */ (function (_super) {
             }
         });
         _this.socket.on('offer', function (message) {
-            console.log("PeerWrapper > ".concat(_this.peer_id, ": process offer..."), message);
+            console.log("PeerWrapper > ".concat(_this.peer_id, ": process offer..."));
             _this.processOffer(_this.socket, message);
         });
         _this.socket.on('answer', function (message) {
-            console.log("PeerWrapper > ".concat(_this.peer_id, ": process answer..."), message);
+            console.log("PeerWrapper > ".concat(_this.peer_id, ": process answer..."));
             _this.peer.signal(message["answer"]);
         });
         return _this;
@@ -98,7 +98,7 @@ var PeerWrapper = /** @class */ (function (_super) {
         });
         peer.signal(message['offer']);
         peer.on('signal', function (data) {
-            console.log("processOffer: Signal: ", data);
+            console.log("processOffer: on signal");
             socket.emit("answer", {
                 "peer_from": message['peer_to'],
                 "peer_to": message['peer_from'],

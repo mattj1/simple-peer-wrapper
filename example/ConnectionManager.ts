@@ -37,12 +37,12 @@ export default class ConnectionManager {
         });
 
         conn.on('error', () => {
-            console.log("conn.on error: ", conn.remote_peer_id);
+            console.log("conn.on error: "); //, conn.remote_peer_id);
             this.connections[conn.remote_peer_id] = undefined;
         });
 
         conn.on('close', () => {
-            console.log("conn.on close: ", conn.remote_peer_id);
+            console.log("conn.on close: "); //, conn.remote_peer_id);
             this.connections[conn.remote_peer_id] = undefined;
         });
     }

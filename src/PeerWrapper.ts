@@ -38,12 +38,12 @@ export default class PeerWrapper extends EventEmitter<PeerEvents> {
         });
 
         this.socket.on('offer', (message) => {
-            console.log(`PeerWrapper > ${this.peer_id}: process offer...`, message);
+            console.log(`PeerWrapper > ${this.peer_id}: process offer...`);
             this.processOffer(this.socket, message);
         });
 
         this.socket.on('answer', (message) => {
-            console.log(`PeerWrapper > ${this.peer_id}: process answer...`, message);
+            console.log(`PeerWrapper > ${this.peer_id}: process answer...`);
             this.peer.signal(message["answer"]);
         })
     }
@@ -105,7 +105,7 @@ export default class PeerWrapper extends EventEmitter<PeerEvents> {
         peer.signal(message['offer']);
 
         peer.on('signal', data => {
-            console.log("processOffer: Signal: ", data);
+            console.log("processOffer: on signal");
 
             socket.emit("answer", {
                 "peer_from": message['peer_to'],
